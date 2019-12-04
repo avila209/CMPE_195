@@ -83,7 +83,7 @@ void loop() {
 
   // Ultrasonic Sensor
   digitalWrite(trigPin, LOW);
-  delayMi
+  delayMicroseconds(5);
 
 }
 

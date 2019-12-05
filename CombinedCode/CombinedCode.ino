@@ -87,6 +87,92 @@ void loop() {
   digitalWrite(trigPin, HIGH);
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
+  pinMode(echoPin, INPUT);
+  duartion = pulseIn(echoPin, HIGH);
+  cm = (duration / 2) / 29.1;
+  inches = (duration / 2) / 74;
+  Serial.print(inches);
+  Serial.print("in, ");
+  Serial.print(cm);
+  Serial.print("cm");
+  Serial.println();
+  unsigned long currentMillis = millis();
+  if(inches <= 54 && inches > 24) // 4.5 ft, first tone
+  {
+    pauseBetweenNotes = 750;
+    if(outputTone) // currently outputting sound
+    {
+      if(currentMillis - previousMills >= noteDuration)
+      {
+        previousMillis = currentMillis;
+        noTone(3);
+        outputTone = false;
+      }
+    }
+    else // currently a pause
+    {
+      if(currentMillis - previousMillis >= pauseBetweenNotes)
+      {
+        previousMillis = currentMillis;
+        tone(3, 350, 75);
+        tone(3, 400, 75);
+        tone(3, 450, 125);
+        outputTone = true;
+      }
+    }
+    Serial.print("First tone");
+  }
+  else if(inches <= 24 && inches > 12) // 2 ft, second tone
+  {
+    pauseBetweenNotes = 400;
+    if(outputTone)
+    {
+      if(currentMillis = previousMillis >= noteDuration)
+      {
+        previousMillis = currentMillis;
+        noTone(3);
+        outputTone = false;
+      }
+    }
+    else
+    {
+      if(currentMillis - previousMillis >= pauseBetweenNotes)
+      {
+        previousMillis = currentMillis;
+        tone(3, 350, 50);
+        tone(3, 400, 50);
+        tone(3, 450, 100);
+        outputTone = true;
+      }
+    }
+    Serial.print("Second tone");
+  }
+  else if(inches <= 12 && inches > 0)
+  {
+    pauseBetweenNotes = 25;
+    if(outputTone)
+    {
+      if(currentMillis - previousMillis >= noteDuration)
+      {
+        previousMillis = currentMillis;
+        noTone(3);
+        outputTone = false;
+      }
+    }
+    else
+    {
+      if(currentMillis - previousMillis >= pauseBetweenNotes)
+      {
+        previousMillis = currentMillis;
+        tone(3, 350, 25);
+        tone(3, 400, 25);
+        tone(3, 450, 75);
+        outputTone = true;
+      }
+    }
+    Serial.print("Third tone");
+  }
+  delay(250);
 
 }
 

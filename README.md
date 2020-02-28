@@ -19,6 +19,7 @@
 ### To-Do: (Arduino)
     1. Implement the microwave sensor code ("Microwave_Sensor_2.ino", uses MPH rather than motion) into the "Multiple_Ultrasonic.ino" and test using all sensors.
     2. Fill in the portion of the code to turn the brake light relay on and off. (Relay takes a 5V input to switch a high voltage source on and off, in our case, 12V).
+    3. Attempt to create and test the addition of only reading backup sensors on GPIO input. So we can switch this to a switch or signal wire input in the future.
     
 ### Issues Encountered:
     1. Having all the sensors connected to the Arduinos 5V output drew too much current causing the sensors to read incorrectly.
@@ -33,4 +34,5 @@
     5. Find a long, 2-core (or 4) insulated wire for connecting the Arduino and RPi (Microwave sensor info). Should solder the waterproof connector between them. 
     6. Find an LED Light indicator for Blind Spot (Modularity - if user does not want/need the screen and RPi).
        Example: [KIA Lights](https://www.ebay.com/i/183941072754?chn=ps&norover=1&mkevt=1&mkrid=711-117182-37290-0&mkcid=2&itemid=183941072754&targetid=874450542391&device=c&mktype=pla&googleloc=9032168&poi=&campaignid=9343999437&mkgroupid=103102736148&rlsatarget=aud-762207186714:pla-874450542391&abcId=1139336&merchantid=101492499&gclid=Cj0KCQiAkePyBRCEARIsAMy5SctQ5NckdIsExAfQYjG4616pFNezB2RSsZuSuKeKJnsuPxd1MI_JtQ4aAjNPEALw_wcB)
+    7. Add a button (or 12V input) to signal reversing and reading of backup sensors.
     7. Mount sensor on test vehicle. (Drill holes for Ultrasonic, Mount Microwave to sides of the bumper, Route cables to the trunk, splice brake light wires).

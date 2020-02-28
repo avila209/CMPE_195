@@ -17,7 +17,7 @@
     This .ino contains tested results of 4 ultrasonic sensors working simultaneously along with the accelerometer.
     
 ### To-Do: (Arduino)
-- [ ] Implement the microwave sensor code ("Microwave_Sensor_2.ino", uses MPH rather than motion) into the "Multiple_Ultrasonic.ino" and test using all sensors.
+- [ ] Implement the microwave sensor code ("Microwave_Sensor_2.ino", uses MPH rather than motion) into the "Multiple_Ultrasonic.ino" and test using all sensors. (Might be copy and paste, unsure if there are conflicting timers, so make sure it compiles and runs).
 - [ ] Fill in the portion of the code to turn the brake light relay on and off. (Relay takes a 5V input to switch a high voltage source on and off, in our case, 12V). Since we are making the brake light blink, we will need non-interferring delays between on and off. We also need to make sure it only blinks a few times after heavy braking has been detected.
 - [ ] Attempt to create and test the addition of only reading backup sensors on GPIO input. So we can add a switch or signal wire input in the future.
     

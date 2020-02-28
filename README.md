@@ -28,7 +28,7 @@
 # Entire Project
 ### Overall To-Do:
 - [ ] 3D-Print 4 JSN-SR04T Enclosures. [Link](https://www.thingiverse.com/thing:3007089)
-- [ ] 3D-Model an enclosure to fit the Arduino, 4 JSN-SR04T Modules, and 4-Channel Relay. (Mounting holes and wire holes).
+- [ ] 3D-Model an enclosure to fit the Arduino, 4 JSN-SR04T Modules, and 4-Channel Relay. (Mounting holes and wire holes). [Link](https://am22.mediaite.com/tms/cnt/uploads/2020/01/babyyoda.jpg)
 - [ ] 3D-Model an enclosure for the Microwave sensor (retrieve dimensions first).
 - [ ] Create custom Dupont connectors for each sensor (ex. JSN-SR04T, SEN0192 Microwave Sensor, Speaker Wire).
 - [ ] Find a long, 2-core (or 4) insulated wire for connecting the Arduino and RPi (Microwave sensor info). Should solder the waterproof connector between them. 

@@ -33,6 +33,6 @@
 - [ ] Create custom Dupont connectors for each sensor (ex. JSN-SR04T, SEN0192 Microwave Sensor, Speaker Wire).
 - [ ] Find a long, 2-core (or 4) insulated wire for connecting the Arduino and RPi (Microwave sensor info). Should solder the waterproof connector between them. 
 - [ ] Find an LED Light indicator for Blind Spot (Modularity - if user does not want/need the screen and RPi).
-       Example: [KIA Lights](https://www.ebay.com/i/183941072754?chn=ps&norover=1&mkevt=1&mkrid=711-117182-37290-0&mkcid=2&itemid=183941072754&targetid=874450542391&device=c&mktype=pla&googleloc=9032168&poi=&campaignid=9343999437&mkgroupid=103102736148&rlsatarget=aud-762207186714:pla-874450542391&abcId=1139336&merchantid=101492499&gclid=Cj0KCQiAkePyBRCEARIsAMy5SctQ5NckdIsExAfQYjG4616pFNezB2RSsZuSuKeKJnsuPxd1MI_JtQ4aAjNPEALw_wcB)
+       Example: [Link](https://www.ebay.com/i/183941072754?chn=ps&norover=1&mkevt=1&mkrid=711-117182-37290-0&mkcid=2&itemid=183941072754&targetid=874450542391&device=c&mktype=pla&googleloc=9032168&poi=&campaignid=9343999437&mkgroupid=103102736148&rlsatarget=aud-762207186714:pla-874450542391&abcId=1139336&merchantid=101492499&gclid=Cj0KCQiAkePyBRCEARIsAMy5SctQ5NckdIsExAfQYjG4616pFNezB2RSsZuSuKeKJnsuPxd1MI_JtQ4aAjNPEALw_wcB)
 - [ ] Add a button (or 12V input) to signal reversing and reading of backup sensors.
 - [ ] Mount sensor on test vehicle. (Drill holes for Ultrasonic, Mount Microwave to sides of the bumper, Route cables to the trunk, splice brake light wires).

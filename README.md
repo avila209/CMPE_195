@@ -19,7 +19,7 @@
 ### To-Do: (Arduino)
     1. Implement the microwave sensor code ("Microwave_Sensor_2.ino", uses MPH rather than motion) into the "Multiple_Ultrasonic.ino" and test using all sensors.
     2. Fill in the portion of the code to turn the brake light relay on and off. (Relay takes a 5V input to switch a high voltage source on and off, in our case, 12V).
-    3. Attempt to create and test the addition of only reading backup sensors on GPIO input. So we can switch this to a switch or signal wire input in the future.
+    3. Attempt to create and test the addition of only reading backup sensors on GPIO input. So we can add a switch or signal wire input in the future.
     
 ### Issues Encountered:
     1. Having all the sensors connected to the Arduinos 5V output drew too much current causing the sensors to read incorrectly.

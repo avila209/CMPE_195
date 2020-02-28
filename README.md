@@ -23,3 +23,13 @@
 ### Issues Encountered:
     1. Having all the sensors connected to the Arduinos 5V output drew too much current causing the sensors to read incorrectly.
             A temporary fix is using a separate USB source for the 4 Ultrasonic sensors (The RED cable with jumper wire ends).
+
+# Entire Project
+### Overall To-Do:
+    1. 3D-Print 4 JSN-SR04T Enclosures.
+    2. 3D-Model an enclosure to fit the Arduino, 4 JSN-SR04T Modules, and 4-Channel Relay. (Mmounting holes and wire holes).
+    3. 3D-Model an enclosure for the Microwave sensor (retrieve dimensions first).
+    4. Create custom Dupont connectors for each sensor (ex. JSN-SR04T, SEN0192 Microwave Sensor, Speaker Wire).
+    5. Find a long, 2-core (or 4) insulated wire for connecting the Arduino and RPi (Microwave sensor info). 
+    6. Find an LED Light indicator for Blind Spot (Modularity - if user does not want/need the screen and RPi).
+    6. Mount sensor on test vehicle.

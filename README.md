@@ -6,7 +6,7 @@
     Step 3. Run the python code "Main_4.py", output should be displaying after approximately 60 seconds.
     
 ### To-Do: (RPi)
-    1. Connect GPIO Pins with Blind-spot symbols in the GUI
+    [ ] Connect GPIO Pins with Blind-spot symbols in the GUI
     
 ### Issues Encountered: 
     1. Some cars do not have all the requested OBD Codes for our GUI. (01 Honda Accord did not have FUEL_LEVEL command).

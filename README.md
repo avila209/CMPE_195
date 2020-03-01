@@ -29,9 +29,9 @@
 # Entire Project
 ### Overall To-Do:
 - [ ] 3D-Print 4 JSN-SR04T Enclosures. [Link](https://www.thingiverse.com/thing:3007089)
-- [ ] 3D-Model an enclosure to fit the Arduino, 4 JSN-SR04T Modules, and 4-Channel Relay. (Mounting holes and wire holes). [Link](https://am22.mediaite.com/tms/cnt/uploads/2020/01/babyyoda.jpg)
+- [x] 3D-Model an enclosure to fit the Arduino, 4 JSN-SR04T Modules, and 4-Channel Relay. (Mounting holes and wire holes). [Link](https://am22.mediaite.com/tms/cnt/uploads/2020/01/babyyoda.jpg)
 - [ ] 3D-Model an enclosure for the Microwave sensor (retrieve dimensions first).
-- [ ] Create custom Dupont connectors for each sensor (ex. JSN-SR04T, SEN0192 Microwave Sensor, Speaker Wire).
+- [ ] Create custom Dupont connectors for each sensor (ex. JSN-SR04T, SEN0192 Microwave Sensor, Speaker Wire, Relays).
 - [ ] Find a long, 2-core (or 4) insulated wire for connecting the Arduino and RPi (Microwave sensor info). Should solder the waterproof connector between them. 
 - [ ] Find an LED Light indicator for Blind Spot (Modularity - if user does not want/need the screen and RPi).
        Example: [Link](https://www.ebay.com/i/183941072754?chn=ps&norover=1&mkevt=1&mkrid=711-117182-37290-0&mkcid=2&itemid=183941072754&targetid=874450542391&device=c&mktype=pla&googleloc=9032168&poi=&campaignid=9343999437&mkgroupid=103102736148&rlsatarget=aud-762207186714:pla-874450542391&abcId=1139336&merchantid=101492499&gclid=Cj0KCQiAkePyBRCEARIsAMy5SctQ5NckdIsExAfQYjG4616pFNezB2RSsZuSuKeKJnsuPxd1MI_JtQ4aAjNPEALw_wcB)

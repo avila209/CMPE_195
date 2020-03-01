@@ -7,6 +7,7 @@
     
 ### To-Do: (RPi)
 - [ ] Connect GPIO Pins with Blind-spot symbols in the GUI
+- [ ] Create a button for reversing (on/off)
     
 ### Issues Encountered: 
     1. Some cars do not have all the requested OBD Codes for our GUI. (01 Honda Accord did not have FUEL_LEVEL command).

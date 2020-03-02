@@ -7,8 +7,8 @@ uint8_t pinMask = 0;         // Pin bitmask.
 volatile uint8_t *pinOutput; // Output port register
 unsigned long previousAccelMillis = 0;
 
-int lightBrakeDelay = 1000;
-int mediumBrakeDelay = 500;
+//int lightBrakeDelay = 1000;
+//int mediumBrakeDelay = 500;
 int hardBrakeDelay = 250;
 
 int RawMin = 0;
@@ -32,7 +32,7 @@ void setup() {
   pinMode(accelOutputPin, OUTPUT);
   digitalWrite(groundpin, LOW);
   digitalWrite(powerpin, HIGH);
-  digitalWrite(accelOutputPin, LOW);
+  digitalWrite(accelOutputPin, HIGH);
 }
 
 void loop() {
@@ -53,7 +53,7 @@ void loop() {
   
   float difference = xAccel - prevAccel;
   difference = abs(difference);
-  if(difference > .25){
+  /*if(difference > .25){
     Serial.print("Light braking detected");
     if(currentAccelMillis - previousAccelMillis >= lightBrakeDelay) {
       previousAccelMillis = currentAccelMillis;
@@ -65,15 +65,19 @@ void loop() {
       previousAccelMillis = currentAccelMillis;
       digitalWrite(accelOutputPin, !digitalRead(accelOutputPin));
     }
-  } else if (difference > .75) {
+  } else*/ 
+  if (difference > .75) {
     Serial.print("Heavy braking detected");
     if(currentAccelMillis - previousAccelMillis >= hardBrakeDelay) {
       previousAccelMillis = currentAccelMillis;
       digitalWrite(accelOutputPin, !digitalRead(accelOutputPin));
+      digitalWrite(accelOutputPin, !digitalRead(accelOutputPin));
+      digitalWrite(accelOutputPin, !digitalRead(accelOutputPin));
+      digitalWrite(accelOutputPin, !digitalRead(accelOutputPin));
     }
   } else {
     // Default, no breaking or too light of a brake
-    digitalWrite(accelOutputPin, LOW);
+    digitalWrite(accelOutputPin, HIGH);
   }
   
   Serial.print("\n");

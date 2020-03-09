@@ -37,9 +37,15 @@ boolean outputTone = false;
 
 
 //Accelerometer config
-const int powerpin = 58;  //A4
-const int groundpin = 54; //A0
+const int powerpin = 58;    //A4
+const int groundpin = 54;   //A0
 const int xpin = A3;
+const int accelOutputPin = A8;
+uint8_t pinMask = 0;        // Pin bitmask
+volatile uint8_t *pinOutput // Output port register
+unsigned long previousAccelMillis = 0;
+
+int hardBrakeDelay = 250;
 
 int RawMin = 0;
 int RawMax = 1023;
@@ -61,8 +67,10 @@ void setup() {
   //Accelerometer
   pinMode(groundpin, OUTPUT);
   pinMode(powerpin, OUTPUT);
+  pinMode(accelOutputPin, OUTPUT);
   digitalWrite(groundpin, LOW);
   digitalWrite(powerpin, HIGH);
+  digitalWrite(accelOutputPin, HIGH);
 }
 
 bool first_round = true;
@@ -218,6 +226,7 @@ void loop() {
 
 
   //Acelerometer Code:
+  unsigned long currentAccelMillis = millis();
   xRaw = ReadAxis(xpin);
   xScaled = map(xRaw, RawMin, RawMax, -3000, 3000);
   prevAccel = xAccel;
@@ -231,13 +240,29 @@ void loop() {
 
   float difference = xAccel - prevAccel;
   difference = abs(difference);
-  if(difference > .5){
+  if(difference > .75){
     Serial.print("Heavy braking detected");
-    //Insert replay code with non interefering delays here
-
-
-
-    
+    if(currentAccelMillis - previousAccelMillis >= hardBrakeDelay) {
+      digitalWrite(accelOutputPin, LOW);
+      digitalWrite(accelOutputPin, HIGH);
+      digitalWrite(accelOutputPin, LOW);
+      digitalWrite(accelOutputPin, HIGH);
+      digitalWrite(accelOutputPin, LOW);
+      digitalWrite(accelOutputPin, HIGH);
+      digitalWrite(accelOutputPin, LOW);
+      digitalWrite(accelOutputPin, HIGH);
+      digitalWrite(accelOutputPin, LOW);
+      digitalWrite(accelOutputPin, HIGH);
+      digitalWrite(accelOutputPin, LOW);
+      digitalWrite(accelOutputPin, HIGH);
+      digitalWrite(accelOutputPin, LOW);
+      digitalWrite(accelOutputPin, HIGH);
+      digitalWrite(accelOutputPin, LOW);
+      digitalWrite(accelOutputPin, HIGH);
+    }
+  } else {
+    // Default, no breaking or too light of a brake
+    digitalWrite(accelOutputPin, HIGH);
   }
 
   Serial.print("\n");

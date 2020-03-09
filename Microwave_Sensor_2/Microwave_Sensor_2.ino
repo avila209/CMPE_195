@@ -1,7 +1,7 @@
 #define SENSITIVITY 7
 
 // The analog pin to use
-#define ADCPin A1
+#define ADCPin A6
 
 // Incoming data is summed, so fetching the results every second
 // will indicate speed over the previous second

@@ -1,3 +1,5 @@
+#define SENSITIVITY 7
+
 // The analog pin to use
 #define ADCPin A1
 
@@ -11,6 +13,7 @@
 #include "AnalogFrequency.h"
 
 uint32_t displayTimer = 0;
+bool detection;
 
 void setup() {
   Serial.begin(115200);
@@ -23,10 +26,16 @@ void loop() {
    displayTimer = millis();   
    uint32_t frequency = getFreq();
    float speedMPH = frequency/31.36;
-   if(speedMPH > 0.5){
-      Serial.print("Motion deteced ");
+   if(speedMPH > 1 && speedMPH < 20){
+      detection = true;
+      Serial.print("Blindspot on");
       Serial.print("  MPH ");
       Serial.println(speedMPH);
+      Serial.write(detection);
+   }
+   else {
+      detection = false;
+      Serial.write(detection);
    }
  }
 }

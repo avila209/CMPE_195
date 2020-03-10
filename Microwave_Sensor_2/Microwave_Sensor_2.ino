@@ -12,12 +12,15 @@
 
 #include "AnalogFrequency.h"
 
+const int digitalPin = 4;
+
 uint32_t displayTimer = 0;
-bool detection;
 
 void setup() {
   Serial.begin(115200);
   setupADC(ADCPin);
+  pinMode(digitalPin, OUTPUT);
+  digitalWrite(digitalPin, LOW);
 }
 
 void loop() {
@@ -27,15 +30,13 @@ void loop() {
    uint32_t frequency = getFreq();
    float speedMPH = frequency/31.36;
    if(speedMPH > 1 && speedMPH < 20){
-      detection = true;
       Serial.print("Blindspot on");
       Serial.print("  MPH ");
       Serial.println(speedMPH);
-      Serial.write(detection);
+      digitalWrite(digitalPin, HIGH);
    }
    else {
-      detection = false;
-      Serial.write(detection);
+      digitalWrite(digitalPin, LOW);
    }
  }
 }

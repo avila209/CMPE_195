@@ -11,6 +11,8 @@ unsigned long previousAccelMillis = 0;
 //int mediumBrakeDelay = 500;
 int hardBrakeDelay = 250;
 
+int accelCount = 0;
+
 int RawMin = 0;
 int RawMax = 1023;
 
@@ -68,28 +70,16 @@ void loop() {
   } else*/ 
   if (difference > .75) {
     Serial.print("Heavy braking detected");
-    if(currentAccelMillis - previousAccelMillis >= hardBrakeDelay) {
+    if(currentAccelMillis - previousAccelMillis >= hardBrakeDelay && count < 8) {
       previousAccelMillis = currentAccelMillis;
-      digitalWrite(accelOutputPin, LOW);
-      digitalWrite(accelOutputPin, HIGH);
-      digitalWrite(accelOutputPin, LOW);
-      digitalWrite(accelOutputPin, HIGH);
-      digitalWrite(accelOutputPin, LOW);
-      digitalWrite(accelOutputPin, HIGH);
-      digitalWrite(accelOutputPin, LOW);
-      digitalWrite(accelOutputPin, HIGH);
-      digitalWrite(accelOutputPin, LOW);
-      digitalWrite(accelOutputPin, HIGH);
-      digitalWrite(accelOutputPin, LOW);
-      digitalWrite(accelOutputPin, HIGH);
-      digitalWrite(accelOutputPin, LOW);
-      digitalWrite(accelOutputPin, HIGH);
-      digitalWrite(accelOutputPin, LOW);
-      digitalWrite(accelOutputPin, HIGH);
+      digitalWrite(accelOutputPin, false);
+      digitalWrite(accelOutputPin, true);
+      accelCount++;
     }
   } else {
     // Default, no breaking or too light of a brake
-    digitalWrite(accelOutputPin, HIGH);
+    digitalWrite(accelOutputPin, true);
+    accelCount = 0;
   }
   
   Serial.print("\n");

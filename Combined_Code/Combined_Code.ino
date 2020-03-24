@@ -1,5 +1,18 @@
 #include <NewTone.h>
 #include <NewPing.h>
+#include "AnalogFrequency.h"
+
+// Microwave Sensor Config
+#define ADCPinL A6   // Left sensor input
+#define ADCPinR A7   // Right sensor input
+#define SENSITIVITY 7
+#define printDelay 0
+
+const int digitalPinL = 4; // Left sensor output to RPi
+const int digitalPinR = 3; // Right sensor output to RPi
+
+uint32_t displayTimerL = 0;
+uint32_t displayTimerR = 0;
 
 // Ultrasonic Config
 int trigPin_1 = 13;   // Trigger
@@ -42,6 +55,7 @@ volatile uint8_t *pinOutput             // Output port register
 unsigned long previousAccelMillis = 0;
 
 int hardBrakeDelay = 250;
+int accelCount = 0;
 
 int RawMin = 0;
 int RawMax = 1023;
@@ -49,15 +63,22 @@ float xAccel = 0;
 long xScaled = 0;
 int xRaw = 0;
 float prevAccel = 0;
-
 const int sampleSize = 10;
 
 void setup()
 {
-  //Serial Port begin
+  // Serial Port begin
   Serial.begin (115200);
 
-  //Accelerometer
+  // Microwave Sensor
+  setupADC(ADCPinL);
+  setupADC(ADCPinR);
+  pinMode(digitalPinL, OUTPUT);
+  pinMode(digitalPinR, OUTPUT);
+  digitalWrite(digitalPinL, LOW);
+  digitalWrite(digitalPinR, LOW);
+
+  // Accelerometer
   pinMode(groundpin, OUTPUT);
   pinMode(powerpin, OUTPUT);
   pinMode(accelOutputPin, OUTPUT);
@@ -70,8 +91,52 @@ bool first_round = true;
 
 void loop()
 {
+  Microwave_Sensor_L();
+  Microwave_Sensor_R();
   Multiple_Ultrasonic();
   BrakeLight();
+}
+
+void Microwave_Sensor_L()
+{
+  if (fAvailable() && millis() - displayTimerL > printDelay)
+  {
+    displayTimerL = millis();
+    uint32_t freqL = getFreq();
+    float speedMPH_L = freqL/31.36;
+    if(speedMPH_L > 1 && speedMPH_L < 20)
+    {
+      Serial.print("Left Blindspot on");
+      Serial.print("  MPH ");
+      Serial.println(speedMPH_L);
+      digitalWrite(digitalPinL, HIGH);
+    }
+    else
+    {
+      digitalWrite(digitalPinL, LOW);
+    }
+  }
+}
+
+void Microwave_Sensor_R()
+{
+  if (fAvailable() && millis() - displayTimerR > printDelay)
+  {
+    displayTimerR = millis();
+    uint32_t freqR = getFreq();
+    float speedMPH_R = freqR/31.36;
+    if(speedMPH_R > 1 && speedMPH_R < 20)
+    {
+      Serial.print("Left Blindspot on");
+      Serial.print("  MPH ");
+      Serial.println(speedMPH_R);
+      digitalWrite(digitalPinR, HIGH);
+    }
+    else
+    {
+      digitalWrite(digitalPinR, LOW);
+    }
+  }
 }
 
 void Multiple_Ultrasonic()
@@ -256,30 +321,18 @@ void BrakeLight()
   if(difference > .75)
   {
     Serial.print("Heavy braking detected");
-    if(currentAccelMillis - previousAccelMillis >= hardBrakeDelay)
+    if(currentAccelMillis - previousAccelMillis >= hardBrakeDelay && count < 8)
     {
       digitalWrite(accelOutputPin, LOW);
       digitalWrite(accelOutputPin, HIGH);
-      digitalWrite(accelOutputPin, LOW);
-      digitalWrite(accelOutputPin, HIGH);
-      digitalWrite(accelOutputPin, LOW);
-      digitalWrite(accelOutputPin, HIGH);
-      digitalWrite(accelOutputPin, LOW);
-      digitalWrite(accelOutputPin, HIGH);
-      digitalWrite(accelOutputPin, LOW);
-      digitalWrite(accelOutputPin, HIGH);
-      digitalWrite(accelOutputPin, LOW);
-      digitalWrite(accelOutputPin, HIGH);
-      digitalWrite(accelOutputPin, LOW);
-      digitalWrite(accelOutputPin, HIGH);
-      digitalWrite(accelOutputPin, LOW);
-      digitalWrite(accelOutputPin, HIGH);
+      accelCount++;
     }
   }
   else
   {
     // Default, no breaking or too light of a brake
     digitalWrite(accelOutputPin, HIGH);
+    accelCount = 0;
   }
   Serial.print("\n");
   delay(10);

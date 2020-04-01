@@ -8,8 +8,8 @@
 #define SENSITIVITY 7
 #define printDelay 0
 
-const int digitalPinL = 4; // Left sensor output to RPi
-const int digitalPinR = 3; // Right sensor output to RPi
+const int digitalPinL = 5; // Left sensor output to RPi
+const int digitalPinR = 4; // Right sensor output to RPi
 
 uint32_t displayTimerL = 0;
 uint32_t displayTimerR = 0;
@@ -51,7 +51,7 @@ const int groundpin = 54;               //A0
 const int xpin = A3;
 const int accelOutputPin = A8;
 uint8_t pinMask = 0;                    // Pin bitmask
-volatile uint8_t *pinOutput             // Output port register
+volatile uint8_t *pinOutput;            // Output port register
 unsigned long previousAccelMillis = 0;
 
 int hardBrakeDelay = 250;
@@ -321,7 +321,7 @@ void BrakeLight()
   if(difference > .75)
   {
     Serial.print("Heavy braking detected");
-    if(currentAccelMillis - previousAccelMillis >= hardBrakeDelay && count < 8)
+    if(currentAccelMillis - previousAccelMillis >= hardBrakeDelay && accelCount < 8)
     {
       digitalWrite(accelOutputPin, LOW);
       digitalWrite(accelOutputPin, HIGH);

@@ -70,7 +70,7 @@ void loop() {
   } else*/ 
   if (difference > .75) {
     Serial.print("Heavy braking detected");
-    if(currentAccelMillis - previousAccelMillis >= hardBrakeDelay && count < 8) {
+    if(currentAccelMillis - previousAccelMillis >= hardBrakeDelay && accelCount < 8) {
       previousAccelMillis = currentAccelMillis;
       digitalWrite(accelOutputPin, false);
       digitalWrite(accelOutputPin, true);

@@ -323,6 +323,7 @@ void BrakeLight()
     Serial.print("Heavy braking detected");
     if(currentAccelMillis - previousAccelMillis >= hardBrakeDelay && accelCount < 8)
     {
+      previousAccelMillis = currentAccelMillis;
       digitalWrite(accelOutputPin, LOW);
       digitalWrite(accelOutputPin, HIGH);
       accelCount++;

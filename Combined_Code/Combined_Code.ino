@@ -54,7 +54,8 @@ uint8_t pinMask = 0;                    // Pin bitmask
 volatile uint8_t *pinOutput;            // Output port register
 unsigned long previousAccelMillis = 0;
 
-int hardBrakeDelay = 250;
+bool flasher = true;
+int hardBrakeDelay = 125; //I found 250 to be too slow
 int accelCount = 0;
 
 int RawMin = 0;
@@ -127,7 +128,7 @@ void Microwave_Sensor_R()
     float speedMPH_R = freqR/31.36;
     if(speedMPH_R > 1 && speedMPH_R < 20)
     {
-      Serial.print("Left Blindspot on");
+      Serial.print("Right Blindspot on");
       Serial.print("  MPH ");
       Serial.println(speedMPH_R);
       digitalWrite(digitalPinR, HIGH);
@@ -327,16 +328,24 @@ void BrakeLight()
       digitalWrite(accelOutputPin, LOW);
       digitalWrite(accelOutputPin, HIGH);
       accelCount++;
+      flasher = !flasher;
+      if(flasher){
+          digitalWrite(accelOutputPin, HIGH);
+      }
+      else{
+          digitalWrite(accelOutputPin, LOW);
+      }
     }
   }
   else
   {
-    // Default, no breaking or too light of a brake
+    // Default, no heavy braking detected
     digitalWrite(accelOutputPin, HIGH);
     accelCount = 0;
+    flasher = true;
   }
   Serial.print("\n");
-  delay(10);
+  delay(10); //Not sure if this is necessary
 }
 
 int ReadAxis(int axisPin){

@@ -1,4 +1,6 @@
-# Raspberry Pi Code
+# CMPE195 MAST Group 28
+## Luis Avila, Alex Gomez-Chavez, Darren Truong, Kevin Wong
+## Raspberry Pi Code
 ### Initial setup
     Step 1. Check if the RPi is connected to OBD-II.
     Step 2. Run command "sudo rfcomm bind rfcomm0 00:1D:A5:03:E8:51"
@@ -12,7 +14,7 @@
 ### Issues Encountered: 
     1. Some cars do not have all the requested OBD Codes for our GUI. (01 Honda Accord did not have FUEL_LEVEL command).
 
-# Arduino Code
+## Arduino Code
 ### Initial setup
     The most functioning code as of now (2/28/2020) is in the "Multiple_Ultrasonic.ino".
     This .ino contains tested results of 4 ultrasonic sensors working simultaneously along with the accelerometer.

@@ -1,5 +1,5 @@
 # CMPE195 MAST Group 28
-## Luis Avila, Alex Gomez-Chavez, Darren Truong, Kevin Wong
+#### Luis Avila, Alex Gomez-Chavez, Darren Truong, Kevin Wong
 ## Raspberry Pi Code
 ### Initial setup
     Step 1. Check if the RPi is connected to OBD-II.

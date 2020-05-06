@@ -5,8 +5,7 @@
 ## Raspberry Pi Code
 ### Preparing to Run the code
     Ensure you have all the necessary libraries required for this project installed on the Raspberry Pi.
-    The libraries required are: '$ pip install obd', '$ sudo apt-get install bluetooth bluez-utils blueman',
-    '$ sudo apt-get install python3-pyqt5'. 
+    Required library setup commands: '$ pip install obd', '$ sudo apt-get install bluetooth bluez-utils blueman', '$ sudo apt-get install python3-pyqt5'. 
     Other libraries included in this project come preinstalled in the Raspberry Pi.
 ### Initial setup
     Step 1. Check if the RPi is connected to OBD-II. If not, initiate the bluetooth connection.

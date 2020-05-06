@@ -23,7 +23,6 @@
 - [x] Fill in the portion of the code to turn the brake light relay on and off. (Relay takes a 5V input to switch a high voltage source on and off, in our case, 12V). Since we are making the brake light blink, we will need non-interferring delays between on and off. We also need to make sure it only blinks a few times after heavy braking has been detected.
 - [x] Attempt to create and test the addition of only reading backup sensors on GPIO input. So we can add a switch or signal wire input in the future.
 
-# Entire Project
 ### Overall To-Do:
 - [x] 3D-Model an enclosure to fit the Arduino, 4 JSN-SR04T Modules, and 4-Channel Relay. (Mounting holes and wire holes). [Link](https://am22.mediaite.com/tms/cnt/uploads/2020/01/babyyoda.jpg)
 - [x] 3D-Model an enclosure for the Microwave sensor (retrieve dimensions first).

@@ -2,6 +2,11 @@
 #### Members: Luis Avila, Alex Gomez-Chavez, Darren Truong, Kevin Wong
 #### Advisor: Dr. Nima Karimian
 
+## Code Structure
+- The code structure is separated into two folders for both ends of the project (front and back end)
+- The first end is located in the 'Raspberry-Pi Code' folder and contains the two Python Interface files, two PyQT5 UI build files, and a folder with images used to build the UI.
+- The back end is located in the 'Arduino Code' folder and contains the final version .ino file along with all the necessary libraries needed to compile the .ino.
+
 ## Raspberry Pi Code
 ### Preparing to Run the code
 - Ensure you have all the necessary libraries required for this project installed on the Raspberry Pi.

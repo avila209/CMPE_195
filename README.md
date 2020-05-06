@@ -1,6 +1,7 @@
 # CMPE195 MAST Group 28
 #### Members: Luis Avila, Alex Gomez-Chavez, Darren Truong, Kevin Wong
 #### Advisor: Dr. Nima Karimian
+#### Video Demo: https://drive.google.com/file/d/1XQ9YqoG-sR5vK6QF0qiR7555LYMePLy3/view?usp=sharing
 
 ## Code Structure
 - The code structure is separated into two folders for both ends of the project (front and back end)

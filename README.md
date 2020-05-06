@@ -23,8 +23,8 @@
 
 ## Arduino Code
 ### Initial setup
-    - Install the Arduino IDE and install all the packages included in the Arduino Code folder.
-    - After installation, compile and upload the code onto the Arduino.
+- Install the Arduino IDE and install all the packages included in the Arduino Code folder.
+- After installation, compile and upload the code onto the Arduino.
     
 ### To-Do: (Arduino)
 - [x] Fill in the portion of the code to turn the brake light relay on and off. (Relay takes a 5V input to switch a high voltage source on and off, in our case, 12V). Since we are making the brake light blink, we will need non-interferring delays between on and off. We also need to make sure it only blinks a few times after heavy braking has been detected.

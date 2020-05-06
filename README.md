@@ -4,10 +4,10 @@
 
 ## Raspberry Pi Code
 ### Preparing to Run the code
-    Ensure you have all the necessary libraries required for this project installed on the Raspberry Pi.
-    Required library setup commands: '$ pip install obd', '$ sudo apt-get install bluetooth bluez-utils blueman', 
+    - Ensure you have all the necessary libraries required for this project installed on the Raspberry Pi.
+    - Required library setup commands: '$ pip install obd', '$ sudo apt-get install bluetooth bluez-utils blueman', 
         '$ sudo apt-get install python3-pyqt5'. 
-    Other libraries included in this project come preinstalled in the Raspberry Pi.
+    - Other libraries included in this project come preinstalled in the Raspberry Pi.
 ### Initial setup
     Step 1. Check if the RPi is connected to OBD-II. If not, initiate the bluetooth connection.
     Step 2. Run command "sudo rfcomm bind rfcomm0 (OBD MAC Address)00:1D:A5:03:E8:51"
@@ -23,8 +23,8 @@
 
 ## Arduino Code
 ### Initial setup
-    Install the Arduino IDE and install all the packages included in the Arduino Code folder.
-    After installation, compile and upload the code onto the Arduino.
+    - Install the Arduino IDE and install all the packages included in the Arduino Code folder.
+    - After installation, compile and upload the code onto the Arduino.
     
 ### To-Do: (Arduino)
 - [x] Fill in the portion of the code to turn the brake light relay on and off. (Relay takes a 5V input to switch a high voltage source on and off, in our case, 12V). Since we are making the brake light blink, we will need non-interferring delays between on and off. We also need to make sure it only blinks a few times after heavy braking has been detected.

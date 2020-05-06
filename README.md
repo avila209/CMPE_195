@@ -3,11 +3,16 @@
 #### Advisor: Dr. Nima Karimian
 
 ## Raspberry Pi Code
+### Preparing to Run the code
+    Ensure you have all the necessary libraries required for this project installed on the Raspberry Pi.
+    The libraries required are: '$ pip install obd', '$ sudo apt-get install bluetooth bluez-utils blueman',
+    '$ sudo apt-get install python3-pyqt5'. 
+    Other libraries included in this project come preinstalled in the Raspberry Pi.
 ### Initial setup
-    Step 1. Check if the RPi is connected to OBD-II.
-    Step 2. Run command "sudo rfcomm bind rfcomm0 00:1D:A5:03:E8:51"
+    Step 1. Check if the RPi is connected to OBD-II. If not, initiate the bluetooth connection.
+    Step 2. Run command "sudo rfcomm bind rfcomm0 (OBD MAC Address)00:1D:A5:03:E8:51"
                 How to get the MAC Address: Run "bluetoothctl" and "devices" to retrieve it.
-    Step 3. Run the python code "Main_4.py", output should be displaying after approximately 60 seconds.
+    Step 3. Run the python code "Main.py", output should be displaying after approximately 60 seconds.
     
 ### To-Do: (RPi)
 - [x] Connect GPIO Pins with Blind-spot symbols in the GUI
